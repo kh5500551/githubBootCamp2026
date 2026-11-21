@@ -6,6 +6,7 @@ const input = document.getElementById('todo-input');
 const list = document.getElementById('todo-list');
 const emptyState = document.getElementById('empty-state');
 const remainingCount = document.getElementById('remaining-count');
+const clearCompletedButton = document.getElementById('clear-completed');
 const storageMessage = document.getElementById('storage-message');
 const filterButtons = document.querySelectorAll('.btn-filter');
 const themeToggle = document.getElementById('theme-toggle');
@@ -128,6 +129,10 @@ function renderTodos() {
   }
 
   remainingCount.textContent = `未完成:${todos.filter((todo) => !todo.completed).length} 項`;
+
+  // 已完成項目為零時隱藏批次清除按鈕，避免無效操作。
+  const hasCompletedTodos = todos.some((todo) => todo.completed);
+  clearCompletedButton.hidden = !hasCompletedTodos;
 }
 
 // 切換目前的篩選條件。
@@ -183,6 +188,18 @@ list.addEventListener('click', (event) => {
 
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => setFilter(button.dataset.filter));
+});
+
+// 使用確認對話框防止誤刪後，一次移除所有已完成事項。
+clearCompletedButton.addEventListener('click', () => {
+  if (!todos.some((todo) => todo.completed)) return;
+
+  const confirmed = window.confirm('確定要清除所有已完成的待辦事項嗎？');
+  if (!confirmed) return;
+
+  todos = todos.filter((todo) => !todo.completed);
+  saveTodos();
+  renderTodos();
 });
 
 themeToggle.addEventListener('click', () => {

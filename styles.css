@@ -252,12 +252,38 @@ h1 {
 }
 
 .app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   margin-top: 24px;
   padding-top: 18px;
   border-top: 1px solid var(--color-border);
   color: var(--color-muted);
-  text-align: center;
   font-size: 0.9rem;
+}
+
+.btn-clear-completed {
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  border: 1px solid var(--color-danger);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-danger);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.btn-clear-completed:hover {
+  background: var(--color-danger-hover);
+  color: var(--color-danger);
+}
+
+.btn-clear-completed:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
 }
 
 .sr-only {
