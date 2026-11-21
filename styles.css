@@ -281,6 +281,11 @@ h1 {
   color: var(--color-danger);
 }
 
+.btn-clear-completed:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
 .btn-clear-completed:focus-visible {
   outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;

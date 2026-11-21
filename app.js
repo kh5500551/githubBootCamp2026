@@ -133,6 +133,7 @@ function renderTodos() {
   // 已完成項目為零時隱藏批次清除按鈕，避免無效操作。
   const hasCompletedTodos = todos.some((todo) => todo.completed);
   clearCompletedButton.hidden = !hasCompletedTodos;
+  clearCompletedButton.disabled = !hasCompletedTodos;
 }
 
 // 切換目前的篩選條件。
