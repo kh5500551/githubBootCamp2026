@@ -10,7 +10,13 @@
   --color-danger: #d45867;
   --color-danger-hover: #fff0f1;
   --color-complete: #a4afbd;
-  --shadow-card: 0 18px 55px rgba(48, 65, 99, 0.1);
+  --color-input: #fbfcfe;
+  --color-placeholder: #aab4c2;
+  --color-page-glow: #e6ecff;
+  --color-white: #ffffff;
+  --color-focus-ring: rgba(91, 124, 250, 0.15);
+  --color-card-shadow: rgba(48, 65, 99, 0.1);
+  --shadow-card: 0 18px 55px var(--color-card-shadow);
 }
 
 * {
@@ -24,7 +30,7 @@ body {
   margin: 0;
   padding: 64px 20px;
   background:
-    radial-gradient(ellipse at 50% 0%, #e6ecff 0, transparent 48%),
+    radial-gradient(ellipse at 50% 0%, var(--color-page-glow) 0, transparent 48%),
     var(--color-page);
   color: var(--color-text);
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
@@ -36,7 +42,7 @@ body {
   align-self: flex-start;
   padding: 36px;
   background: var(--color-card);
-  border: 1px solid rgba(232, 237, 243, 0.8);
+  border: 1px solid var(--color-border);
   border-radius: 20px;
   box-shadow: var(--shadow-card);
 }
@@ -44,14 +50,6 @@ body {
 .app-header {
   margin-bottom: 28px;
   text-align: center;
-}
-
-.eyebrow {
-  margin: 0 0 8px;
-  color: var(--color-accent);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
 }
 
 h1 {
@@ -78,20 +76,20 @@ h1 {
   padding: 13px 15px;
   border: 1px solid var(--color-border);
   border-radius: 11px;
-  background: #fbfcfe;
+  background: var(--color-input);
   color: var(--color-text);
   font: inherit;
   transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
 .todo-input::placeholder {
-  color: #aab4c2;
+  color: var(--color-placeholder);
 }
 
 .todo-input:focus-visible {
   border-color: var(--color-accent);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(91, 124, 250, 0.15);
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
 }
 
 .btn-add {
@@ -100,7 +98,7 @@ h1 {
   border: 0;
   border-radius: 11px;
   background: var(--color-accent);
-  color: #ffffff;
+  color: var(--color-white);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
@@ -132,7 +130,7 @@ h1 {
   padding: 10px 12px;
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  background: #ffffff;
+  background: var(--color-card);
   animation: appear 180ms ease-out;
 }
 

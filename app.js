@@ -1,4 +1,3 @@
-// 待辦清單的資料與畫面操作。
 const STORAGE_KEY = 'my-todo-list';
 
 const form = document.getElementById('todo-form');
